@@ -1,0 +1,167 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Duratec Tappet Calculator</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.5.0.js"></script>
+    </head>
+    <body>
+        <h1>Welcome to the Duratec Tappet Calculator</h1>
+        <h2>Hosted by Mountain Dog Rally Team</h2>
+        <table class="table table-bordered table-sm">
+            <thead>
+              <tr>
+                <th scope="col">Exhaust Side</th>
+                <th scope="col">1</th>
+                <th scope="col">2</th>
+                <th scope="col">3</th>
+                <th scope="col">4</th>
+                <th scope="col">5</th>
+                <th scope="col">6</th>
+                <th scope="col">7</th>
+                <th scope="col">8</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Target Clearance</th>
+                <td colspan="8"><input type="text" class="form-control" data-bind='value: exhaustTarget'></input></td>
+              </tr>
+              <tr>
+                <th scope="row">Measured Clearance</th>
+                <td><input type="text" class="form-control" data-bind='value: exhaustClearance1'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustClearance2'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustClearance3'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustClearance4'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustClearance5'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustClearance6'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustClearance7'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustClearance8'></input></td>
+              </tr>
+              <tr>
+                <th scope="row">Current Tappet #</th>
+                <td><input type="text" class="form-control" data-bind='value: exhaustTappet1'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustTappet2'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustTappet3'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustTappet4'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustTappet5'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustTappet6'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustTappet7'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustTappet8'></input></td>
+              </tr>
+              <tr>
+                <th scope="row">Nearest Tappet Size</th>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewSize1' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewSize2' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewSize3' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewSize4' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewSize5' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewSize6' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewSize7' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewSize8' disabled="true"></input></td>
+              </tr>
+              <tr>
+                <th scope="row">New Tappet #</th>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewTappet1' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewTappet2' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewTappet3' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewTappet4' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewTappet5' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewTappet6' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewTappet7' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewTappet8' disabled="true"></input></td>
+              </tr>
+              <tr>
+                <th scope="row">New Tappet Part#</th>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewPart1' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewPart2' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewPart3' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewPart4' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewPart5' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewPart6' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewPart7' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustNewPart8' disabled="true"></input></td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-bordered table-sm">
+            <thead>
+              <tr>
+                <th scope="col">Intake Side</th>
+                <th scope="col">1</th>
+                <th scope="col">2</th>
+                <th scope="col">3</th>
+                <th scope="col">4</th>
+                <th scope="col">5</th>
+                <th scope="col">6</th>
+                <th scope="col">7</th>
+                <th scope="col">8</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Target Clearance</th>
+                <td colspan="8"><input type="text" class="form-control" data-bind='value: intakeTarget'></input></td>
+              </tr>
+              <tr>
+                <th scope="row">Measured Clearance</th>
+                <td><input type="text" class="form-control" data-bind='value: intakeClearance1'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeClearance2'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeClearance3'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeClearance4'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeClearance5'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeClearance6'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeClearance7'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeClearance8'></input></td>
+              </tr>
+              <tr>
+                <th scope="row">Current Tappet #</th>
+                <td><input type="text" class="form-control" data-bind='value: intakeTappet1'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeTappet2'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeTappet3'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeTappet4'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeTappet5'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeTappet6'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeTappet7'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeTappet8'></input></td>
+              </tr>
+              <tr>
+                <th scope="row">Nearest Tappet Size</th>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewSize1' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewSize2' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewSize3' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewSize4' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewSize5' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewSize6' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewSize7' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewSize8' disabled="true"></input></td>
+              </tr>
+              <tr>
+                <th scope="row">New Tappet #</th>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewTappet1' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewTappet2' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewTappet3' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewTappet4' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewTappet5' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewTappet6' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewTappet7' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewTappet8' disabled="true"></input></td>
+              </tr>
+              <tr>
+                <th scope="row">New Tappet Part#</th>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewPart1' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewPart2' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewPart3' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewPart4' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewPart5' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewPart6' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewPart7' disabled="true"></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeNewPart8' disabled="true"></input></td>
+              </tr>
+            </tbody>
+          </table>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="calculator.js"></script>
+    </body>
+</html>
