@@ -13,7 +13,8 @@ function PartGenerator() {
             partCounter += 1;
         }
         
-        var partNumber = ("CP9Z-6500-" + partCounter.toString(16).toUpperCase() + "B").replace("10", "G").replace("11", "H").replace("12", "J");
+        //var partNumber = ("CP9Z-6500-" + partCounter.toString(16).toUpperCase() + "B").replace("10", "G").replace("11", "H").replace("12", "J");
+        var partNumber = (partCounter.toString(16).toUpperCase() + "B").replace("10", "G").replace("11", "H").replace("12", "J");
 
         if (num < 6) {
             size = (i * 25);
@@ -49,6 +50,10 @@ function GetPart(targetClearance, currentClearance, currentTappet) {
     var closestSize = parts.reduce((a, b) => {
         return Math.abs(b.Size - perfectSize) < Math.abs(a.Size - perfectSize) ? b : a;
     });
+
+    if (Math.abs(perfectSize - closestSize.Size) > 20 ) {
+        return { Number: -1, PartNumber: "N/A", Size: -1};
+    }
 
     return closestSize;
 }
