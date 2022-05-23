@@ -67,7 +67,7 @@ function CalculateNewTappet(targetClearance, currentClearance, currentTappet) {
 function CalculateNewSize(targetClearance, currentClearance, currentTappet) {
     return function() {
         try {
-            return Number(GetPart(targetClearance, currentClearance, currentTappet).Size);
+            return  Number(GetPart(targetClearance, currentClearance, currentTappet).Size);
         }
         catch (error) {
             return 0;
@@ -78,6 +78,12 @@ function CalculateNewSize(targetClearance, currentClearance, currentTappet) {
 function CalculateNewPart(targetClearance, currentClearance, currentTappet) {
     return function() {
         return GetPart(targetClearance, currentClearance, currentTappet).PartNumber;
+    }
+}
+
+function CalculateNewClearance(newTappet, currentClearance, currentTappet) {
+    return function() {
+        return (GetTappetSize(Number(currentTappet())) + (Number(currentClearance()) * 1000) - GetTappetSize(Number(newTappet()))) / 1000;
     }
 }
 
@@ -130,6 +136,15 @@ var dataModel = function() {
     this.exhaustNewPart7 = ko.computed(CalculateNewPart(this.exhaustTarget, this.exhaustClearance7, this.exhaustTappet7), this);
     this.exhaustNewPart8 = ko.computed(CalculateNewPart(this.exhaustTarget, this.exhaustClearance8, this.exhaustTappet8), this);
 
+    this.exhaustNewClearance1 = ko.computed(CalculateNewClearance(this.exhaustNewTappet1, this.exhaustClearance1, this.exhaustTappet1), this);
+    this.exhaustNewClearance2 = ko.computed(CalculateNewClearance(this.exhaustNewTappet2, this.exhaustClearance2, this.exhaustTappet2), this);
+    this.exhaustNewClearance3 = ko.computed(CalculateNewClearance(this.exhaustNewTappet3, this.exhaustClearance3, this.exhaustTappet3), this);
+    this.exhaustNewClearance4 = ko.computed(CalculateNewClearance(this.exhaustNewTappet4, this.exhaustClearance4, this.exhaustTappet4), this);
+    this.exhaustNewClearance5 = ko.computed(CalculateNewClearance(this.exhaustNewTappet5, this.exhaustClearance5, this.exhaustTappet5), this);
+    this.exhaustNewClearance6 = ko.computed(CalculateNewClearance(this.exhaustNewTappet6, this.exhaustClearance6, this.exhaustTappet6), this);
+    this.exhaustNewClearance7 = ko.computed(CalculateNewClearance(this.exhaustNewTappet7, this.exhaustClearance7, this.exhaustTappet7), this);
+    this.exhaustNewClearance8 = ko.computed(CalculateNewClearance(this.exhaustNewTappet8, this.exhaustClearance8, this.exhaustTappet8), this);
+
     this.intakeClearance1 = ko.observable(0);
     this.intakeClearance2 = ko.observable(0);
     this.intakeClearance3 = ko.observable(0);
@@ -175,6 +190,14 @@ var dataModel = function() {
     this.intakeNewPart7 = ko.computed(CalculateNewPart(this.intakeTarget, this.intakeClearance7, this.intakeTappet7), this);
     this.intakeNewPart8 = ko.computed(CalculateNewPart(this.intakeTarget, this.intakeClearance8, this.intakeTappet8), this);
 
+    this.intakeNewClearance1 = ko.computed(CalculateNewClearance(this.intakeNewTappet1, this.intakeClearance1, this.intakeTappet1), this);
+    this.intakeNewClearance2 = ko.computed(CalculateNewClearance(this.intakeNewTappet2, this.intakeClearance2, this.intakeTappet2), this);
+    this.intakeNewClearance3 = ko.computed(CalculateNewClearance(this.intakeNewTappet3, this.intakeClearance3, this.intakeTappet3), this);
+    this.intakeNewClearance4 = ko.computed(CalculateNewClearance(this.intakeNewTappet4, this.intakeClearance4, this.intakeTappet4), this);
+    this.intakeNewClearance5 = ko.computed(CalculateNewClearance(this.intakeNewTappet5, this.intakeClearance5, this.intakeTappet5), this);
+    this.intakeNewClearance6 = ko.computed(CalculateNewClearance(this.intakeNewTappet6, this.intakeClearance6, this.intakeTappet6), this);
+    this.intakeNewClearance7 = ko.computed(CalculateNewClearance(this.intakeNewTappet7, this.intakeClearance7, this.intakeTappet7), this);
+    this.intakeNewClearance8 = ko.computed(CalculateNewClearance(this.intakeNewTappet8, this.intakeClearance8, this.intakeTappet8), this);
 };
 
 ko.applyBindings(new dataModel());
