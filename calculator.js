@@ -46,7 +46,7 @@ function GetTappetSize(tappetNum) {
 }
 
 function GetPart(targetClearance, currentClearance, currentTappet) {
-    var perfectSize = Number(currentTappet()) + (Number(currentClearance()) * 1000) - (Number(targetClearance()) * 1000);
+    var perfectSize = GetTappetSize(Number(currentTappet())) + (Number(currentClearance()) * 1000) - (Number(targetClearance()) * 1000);
     var closestSize = parts.reduce((a, b) => {
         return Math.abs(b.Size - perfectSize) < Math.abs(a.Size - perfectSize) ? b : a;
     });
