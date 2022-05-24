@@ -115,7 +115,7 @@ var dataModel = function() {
     this.exhaustClearance7 = ko.observable(0);
     this.exhaustClearance8 = ko.observable(0);
 
-    this.exhaustTappet1 = ko.observable(20);
+    this.exhaustTappet1 = ko.observable(0);
     this.exhaustTappet2 = ko.observable(0);
     this.exhaustTappet3 = ko.observable(0);
     this.exhaustTappet4 = ko.observable(0);
