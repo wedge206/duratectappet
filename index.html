@@ -15,7 +15,7 @@
             <thead>
               <tr>
                 <th scope="row">Target Clearance</th>
-                <td><input type="text" class="form-control" data-bind='value: exhaustTarget'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: exhaustDisplayTarget'></input></td>
                 <td>
                   <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bind="text: exhaustRounding">Round Nearest</button>
@@ -23,6 +23,14 @@
                       <li><a class="dropdown-item" href="#" data-bind="click: exhaustRoundNearestClicked">Round Nearest</a></li>
                       <li><a class="dropdown-item" href="#" data-bind="click: exhaustRoundUpClicked">Round Up</a></li>
                       <li><a class="dropdown-item" href="#" data-bind="click: exhaustRoundDownClicked">Round Down</a></li>
+                    </ul>
+                  </div>
+                </td><td>
+                  <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bind="text: selectedUnits">Metric</button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#" data-bind="click: metricClicked">Metric</a></li>
+                      <li><a class="dropdown-item" href="#" data-bind="click: standardClicked">Standard</a></li>
                     </ul>
                   </div>
                 </td>
@@ -112,7 +120,7 @@
             <thead>
               <tr>
                 <th scope="row">Target Clearance</th>
-                <td><input type="text" class="form-control" data-bind='value: intakeTarget'></input></td>
+                <td><input type="text" class="form-control" data-bind='value: intakeDisplayTarget'></input></td>
                 <td>
                   <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bind="text: intakeRounding">Round Nearest</button>
