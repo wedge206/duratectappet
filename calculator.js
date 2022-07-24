@@ -1,4 +1,4 @@
-function PartGenerator() {
+function PartGenerator(fullPartNumbers) {
     var result = [];
     var partCounter = 169;
 
@@ -13,8 +13,14 @@ function PartGenerator() {
             partCounter += 1;
         }
         
-        //var partNumber = ("CP9Z-6500-" + partCounter.toString(16).toUpperCase() + "B").replace("10", "G").replace("11", "H").replace("12", "J");
-        var partNumber = (partCounter.toString(16).toUpperCase() + "B").replace("10", "G").replace("11", "H").replace("12", "J");
+        var partNumber = "";
+        if (fullPartNumbers)
+        {
+            partNumber = ("CP9Z-6500-" + partCounter.toString(16).toUpperCase() + "B").replace("10", "G").replace("11", "H").replace("12", "J");
+        }
+        else {
+            partNumber = (partCounter.toString(16).toUpperCase() + "B").replace("10", "G").replace("11", "H").replace("12", "J");
+        }
 
         if (num < 6) {
             size = (i * 25);
@@ -33,6 +39,7 @@ function PartGenerator() {
 };
 
 var parts = PartGenerator();
+var fullParts = PartGenerator(true);
 
 function GetTappetSize(tappetNum) {
     var size = 0;
@@ -220,4 +227,36 @@ var dataModel = function() {
     this.intakeNewClearance8 = ko.pureComputed(CalculateNewClearance(this.intakeNewTappet8, this.intakeClearance8, this.intakeTappet8), this);
 };
 
+var partsViewModel = function(items) {
+    this.items = ko.observableArray(items);
+ 
+   // this.addItem = function() {
+        //this.items.push({ name: "New item", sales: 0, price: 100 });
+    //};
+ 
+    //this.sortByName = function() {
+        //this.items.sort(function(a, b) {
+            //return a.name < b.name ? -1 : 1;
+        //});
+    //};
+ 
+    //this.jumpToFirstPage = function() {
+        //this.gridViewModel.currentPageIndex(0);
+    //};
+ 
+    this.gridViewModel = new ko.simpleGrid.viewModel({
+        data: this.items,
+        columns: [
+            { headerText: "Item Name", rowText: "Number" },
+            { headerText: "Sales Count", rowText: "PartNumber" },
+            { headerText: "Price", rowText: "Size" }
+        ],
+        pageSize: 4
+    });
+
+    //result[i] = { Number: num, PartNumber: partNumber, Size: size};
+}
+
 ko.applyBindings(new dataModel());
+ko.applyBindings(fullParts);
+//ko.applyBindings(new partsViewModel(parts))
